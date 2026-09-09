@@ -4,27 +4,75 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
+      rel="stylesheet"
+    />
     <script defer src="./script.js"></script>
     <title>Travel Explorer</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <h2>Travel Explorer</h2>
-        <ul>
-          <li><a href="#">About</a></li>
+    <header class="header container">
+      <nav class="header__nav">
+        <h2 class="header__nav-title">Travel Explorer</h2>
+        <ul class="header__nav-elements">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
           <li><a href="#">Reviews</a></li>
           <li><a href="#">Destinations</a></li>
         </ul>
+        <button
+          type="button"
+          class="menu__btn"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+        >
+          <span class="menu__line"></span>
+          <span class="menu__line"></span>
+          <span class="menu__line"></span>
+        </button>
       </nav>
       <div class="hero">
-        <h1>Hero</h1>
-        <p></p>
-        <button></button>
+        <h1 class="hero__title">
+          easy planning for your <br />
+          <span>dream adventure!</span>
+        </h1>
+        <p class="hero__desc">
+          travel explorer keeps our customers happy by offering a variety of
+          choices. find the quickest and most enjoyable way to plan your dream
+          trip!
+        </p>
+        <div class="search">
+          <svg class="search__svg">
+            <use href="./img/symbol-defs.svg#icon-location2"></use>
+          </svg>
+          <div class="search__info">
+            <p>location</p>
+            <span>zurich,switzerland</span>
+          </div>
+          <svg class="search__svg">
+            <use href="./img/symbol-defs.svg#icon-calendar"></use>
+          </svg>
+          <div class="search__info">
+            <p>date</p>
+            <span>oct 17,2024</span>
+          </div>
+          <button
+            type="button"
+            class="search__btn"
+            aria-label="Search Destinations"
+          >
+            <svg class="search__btn-svg">
+              <use href="./img/symbol-defs.svg#icon-search"></use>
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
 
-    <main></main>
-    <footer></footer>
+    <main class="container"></main>
+    <footer class="container"></footer>
   </body>
 </html>
