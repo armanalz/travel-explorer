@@ -1,4 +1,5 @@
 "use strict";
+//Menu
 const menuBtn = document.querySelector(".menu__btn");
 const navLinks = document.querySelector(".header__nav-elements");
 
@@ -14,4 +15,24 @@ window.addEventListener("resize", function () {
   if (window.innerWidth > 720) {
     navLinks.classList.remove("menu__animated");
   }
+});
+
+//Options
+const options = document.querySelectorAll(".option__check");
+
+options.forEach((el) => {
+  el.addEventListener("click", function () {
+    // const currentOption = el.parentElement;
+    // const wasActive = currentOption.classList.contains("active");
+
+    // options.forEach((element) => {
+    //   element.parentElement.classList.toggle("active");
+    // });
+
+    // if (!wasActive) {
+    //   currentOption.classList.add("active");
+    // }
+
+    this.parentElement.classList.toggle("active");
+  });
 });
