@@ -2,6 +2,7 @@
   --color-background: rgb(238, 248, 249);
   --color-text-on-image: rgb(235, 249, 249);
   --color-text: #353535;
+  --color-text-light: #8d8c8c;
   --color-background-dark: rgba(139, 141, 141, 0.4);
   --color-blue-btn: rgb(60, 190, 246);
   --font-primary: "Google Sans Flex", sans-serif;
@@ -772,19 +773,91 @@ body {
   }
 }
 
-.booking__btn-primary {
+.booking__btn--primary {
   background-color: var(--color-blue-btn);
   border: none;
 }
 
-.booking__btn-secondary {
+.booking__btn--secondary {
   background-color: transparent;
   border: var(--color-text-on-image) 1px solid;
   margin-left: 0.9em;
 }
 
 @media only screen and (max-width: 24em) {
-  .booking__btn-secondary {
+  .booking__btn--secondary {
     margin-left: 0;
   }
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  padding: 5em 16em;
+  text-transform: capitalize;
+}
+
+@media only screen and (max-width: 45em) {
+  .faq {
+    padding: 5em 10em;
+  }
+}
+
+@media only screen and (max-width: 35em) {
+  .faq {
+    padding: 5em 4em;
+  }
+}
+
+@media only screen and (max-width: 24em) {
+  .faq {
+    padding: 5em 1em;
+  }
+}
+
+.faq__title {
+  font-size: 4em;
+  max-width: 12em;
+  text-align: center;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 30em) {
+  .faq__title {
+    font-size: 3em;
+  }
+}
+
+.faq__desc {
+  margin-top: 1em;
+  font-size: 1.1em;
+  text-align: center;
+  color: var(--color-text-light);
+}
+
+.question {
+  padding: 1.1em 0;
+}
+
+.question:not(:last-child) {
+  border-bottom: var(--color-text-light) 1px solid;
+}
+
+.question__title {
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+}
+
+.question__desc {
+  font-size: 1.1em;
+  color: var(--color-text-light);
+}
+.question__desc a {
+  color: var(--color-text-light);
+}
+.question__desc a:hover {
+  color: var(--color-text-light);
 }

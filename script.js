@@ -22,6 +22,17 @@ const options = document.querySelectorAll(".option__check");
 
 options.forEach((el) => {
   el.addEventListener("click", function () {
+    // const currentOption = el.parentElement;
+    // const wasActive = currentOption.classList.contains("active");
+
+    // options.forEach((element) => {
+    //   element.parentElement.classList.toggle("active");
+    // });
+
+    // if (!wasActive) {
+    //   currentOption.classList.add("active");
+    // }
+
     this.parentElement.classList.toggle("active");
   });
 });
