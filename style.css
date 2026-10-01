@@ -4,6 +4,7 @@
   --color-text: #353535;
   --color-text-light: #8d8c8c;
   --color-background-dark: rgba(139, 141, 141, 0.4);
+  --color-background-footer: rgb(8, 11, 30);
   --color-blue-btn: rgb(60, 190, 246);
   --font-primary: "Google Sans Flex", sans-serif;
 }
@@ -860,4 +861,134 @@ body {
 }
 .question__desc a:hover {
   color: var(--color-text-light);
+}
+
+.footer {
+  background-color: var(--color-background-footer);
+  color: var(--color-text-on-image);
+  text-transform: capitalize;
+  padding: 4em 5em;
+}
+
+@media only screen and (max-width: 24em) {
+  .footer {
+    padding: 4em 1.5em;
+  }
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 1.5px 2px -2px var(--color-text-on-image);
+  padding: 2.5em 0;
+}
+
+@media only screen and (max-width: 45em) {
+  .footer__content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.footer__column--primary {
+  flex-basis: 35%;
+}
+
+@media only screen and (max-width: 45em) {
+  .footer__column--primary {
+    flex-basis: auto;
+  }
+}
+
+.footer__title {
+  text-align: left;
+  margin-bottom: 0.8em;
+}
+
+@media only screen and (max-width: 45em) {
+  .footer__title {
+    text-align: center;
+  }
+}
+
+.footer__title--primary {
+  font-size: 1.8em;
+}
+
+.footer__title--secondary {
+  font-size: 1.3em;
+}
+
+@media only screen and (max-width: 45em) {
+  .footer__title--secondary {
+    margin-top: 1.4em;
+  }
+}
+
+.footer__desc {
+  font-size: 1em;
+}
+
+@media only screen and (max-width: 45em) {
+  .footer__desc {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+}
+
+.footer__links {
+  list-style: none;
+}
+
+.footer__link {
+  font-size: 1em;
+  margin-bottom: 0.6em;
+}
+
+@media only screen and (max-width: 45em) {
+  .footer__link {
+    text-align: center;
+  }
+}
+
+.footer__link a {
+  text-decoration: none;
+  color: var(--color-text-on-image);
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5em 0;
+}
+
+@media only screen and (max-width: 24em) {
+  .footer__bottom {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.footer__social a {
+  text-decoration: none;
+}
+
+.footer__social-svg {
+  height: 1.2em;
+  width: 1.2em;
+  fill: var(--color-text-on-image);
+  margin-right: 0.5em;
+}
+
+.footer__copyright-txt {
+  font-size: 1em;
+}
+
+@media only screen and (max-width: 24em) {
+  .footer__copyright-txt {
+    margin-top: 1.4em;
+    text-align: center;
+  }
 }
