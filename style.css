@@ -17,6 +17,7 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -30,12 +31,6 @@ body {
   padding: 0 3rem;
 }
 
-@media only screen and (max-width: 45em) {
-  .header {
-    position: relative;
-  }
-}
-
 @media only screen and (max-width: 30em) {
   .container {
     padding: 0 1.5rem;
@@ -43,11 +38,32 @@ body {
 }
 
 .header__nav {
+  color: var(--color-text);
+}
+
+.header__nav.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: rgba(238, 248, 249, 0.95);
+  box-shadow: 0 2px 3px -3px var(--color-text);
+}
+
+.header__nav.sticky .header__nav-wrapper {
+  padding: 2.5em;
+}
+
+.header__nav-wrapper {
+  position: relative;
   display: flex;
   color: var(--color-text);
   justify-content: space-between;
   align-items: center;
-  margin: 2.5em 0;
+  margin: 0 auto;
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
 }
 
 .header__nav-title {
@@ -65,20 +81,21 @@ body {
 @media only screen and (max-width: 45em) {
   .header__nav-elements {
     position: absolute;
+    top: 6em;
     right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: var(--color-background);
+    height: 100vh;
+    background-color: rgba(238, 248, 249, 0.95);
     flex-direction: column;
     justify-content: center;
     opacity: 0;
     transform: scale(0);
     transform-origin: top right;
     visibility: hidden;
+    z-index: 999;
   }
 
   .header__nav-elements.menu__animated {
-    transition: opacity 0.3s ease, transform 0.5s ease, visibility 0.5s;
+    transition: opacity 0.3s ease, transform 0.4s ease-in, visibility 0.4s;
   }
 
   .header__nav-elements li {
@@ -105,10 +122,37 @@ body {
   padding: 10px;
 }
 
-.header__nav-elements a:hover {
-  text-decoration: none;
-  color: var(--color-text-on-image);
+.header__nav-elements a {
+  position: relative;
+  z-index: 0;
+  transition: color 0.3s ease-in-out;
+}
+
+.header__nav-elements a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 0;
+  transition: height 0.4s ease-in-out;
   background-color: color-mix(in srgb, var(--color-background), #02232c 30%);
+  z-index: -1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .header__nav-elements a:hover::after {
+    height: 100%;
+  }
+  .header__nav-elements a:hover {
+    text-decoration: none;
+    color: var(--color-text-on-image);
+  }
+}
+
+@media only screen and (max-width: 45em) {
+  .header__nav-elements a:active {
+    box-shadow: 0 1.5px 2px -2px var(--color-text-light);
+    text-decoration: none;
+  }
 }
 
 .menu__btn {
@@ -164,7 +208,7 @@ body {
 }
 
 .hero {
-  background-image: url(./img/header2.jpg);
+  background-image: url(./img/header-lazy.jpg);
   background-size: cover;
   background-position: center;
   border-radius: 1.5em;
@@ -181,6 +225,7 @@ body {
 @media only screen and (max-width: 30em) {
   .hero {
     padding: 0 1.5rem;
+    height: 65vh;
   }
 }
 
@@ -268,9 +313,32 @@ body {
   padding: 1em;
   display: flex;
   align-items: center;
+  overflow: hidden;
   justify-content: center;
   border: none;
   cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
+.search__btn::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: transform 0.4s ease-in-out, width 0.4s ease-in-out,
+    height 0.4s ease-in-out;
+  background-color: color-mix(in srgb, var(--color-blue-btn), #012630 30%);
+  z-index: -1;
+}
+
+.search__btn:hover::after {
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%) rotate(180deg);
 }
 @media only screen and (max-width: 30em) {
   .search__btn {
@@ -484,7 +552,6 @@ body {
 @media only screen and (max-width: 36em) {
   .explore__desc span {
     font-size: 2em;
-    font-weight: 500;
   }
 }
 
@@ -510,6 +577,37 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 0.7em;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.explore__btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent 30%,
+    rgba(47, 107, 226, 0.3)
+  );
+  transform: rotate(-45deg);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+.explore__btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(206, 239, 252, 0.5);
+}
+
+.explore__btn:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(180%);
 }
 
 @media only screen and (max-width: 68em) {
@@ -765,6 +863,9 @@ body {
   border-radius: 1em;
   min-width: 10em;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 @media only screen and (max-width: 24em) {
@@ -777,6 +878,34 @@ body {
 .booking__btn--primary {
   background-color: var(--color-blue-btn);
   border: none;
+}
+
+.booking__btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent 30%,
+    rgba(234, 236, 239, 0.3)
+  );
+  transform: rotate(-45deg);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+.booking__btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(189, 231, 247, 0.5);
+}
+
+.booking__btn:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(180%);
 }
 
 .booking__btn--secondary {

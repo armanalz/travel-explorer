@@ -14,14 +14,14 @@
     <title>Travel Explorer</title>
   </head>
   <body>
-    <header class="header container">
-      <nav class="header__nav">
+    <nav class="header__nav">
+      <div class="header__nav-wrapper container">
         <h2 class="header__nav-title">Travel Explorer</h2>
         <ul class="header__nav-elements">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Reviews</a></li>
-          <li><a href="#">Destinations</a></li>
+          <li><a href="#header">Home</a></li>
+          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="#options">How We Work</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
         <button
           type="button"
@@ -33,7 +33,9 @@
           <span class="menu__line"></span>
           <span class="menu__line"></span>
         </button>
-      </nav>
+      </div>
+    </nav>
+    <header class="header container" id="header">
       <div class="hero">
         <h1 class="hero__title">
           easy planning for your <br />
@@ -57,7 +59,7 @@
           </svg>
           <div class="search__info">
             <p>date</p>
-            <span>oct 17,2024</span>
+            <span>oct 17,2027</span>
           </div>
           <button
             type="button"
@@ -73,7 +75,7 @@
     </header>
 
     <main class="container">
-      <section class="destinations">
+      <section class="destinations" id="destinations">
         <div class="destination first">
           <div class="destination__desc">
             <div class="destination__info">
@@ -155,7 +157,7 @@
           </button>
         </div>
       </section>
-      <section class="options">
+      <section class="options" id="options">
         <div class="options__desc">
           <div class="options__question">how we work?</div>
           <h2 class="options__title">
@@ -239,14 +241,14 @@
           explore more
         </button>
       </section>
-      <section class="faq">
+      <section class="faq" id="faq">
         <h2 class="faq__title">frequently asked questions</h2>
         <p class="faq__desc">
           if you have difficulty or confusion with our application you can ask
           it
         </p>
         <div class="question">
-          <h3 class="question__title">seashi trip?</h3>
+          <h3 class="question__title">travel explorer?</h3>
           <p class="question__desc">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
             corrupti, omnis quo soluta perferendis maiores molestiae
@@ -255,7 +257,9 @@
           </p>
         </div>
         <div class="question">
-          <h3 class="question__title">what is seashi and how does it work?</h3>
+          <h3 class="question__title">
+            what is travel explorer and how does it work?
+          </h3>
           <p class="question__desc">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
             corrupti, omnis quo soluta perferendis maiores molestiae
@@ -288,7 +292,7 @@
     <footer class="footer container">
       <div class="footer__content">
         <div class="footer__column footer__column--primary">
-          <h2 class="footer__title footer__title--primary">seashi</h2>
+          <h2 class="footer__title footer__title--primary">Travel Explorer</h2>
           <p class="footer__desc">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
             explicabo officia sapiente asperiores quaerat delectus nulla magni,
@@ -308,7 +312,9 @@
           <h3 class="footer__title footer__title--secondary">discover</h3>
           <ul class="footer__links">
             <li class="footer__link"><a href="#">partner program</a></li>
-            <li class="footer__link"><a href="#">what is seashi</a></li>
+            <li class="footer__link">
+              <a href="#">what is travel explorer</a>
+            </li>
             <li class="footer__link"><a href="#">discover</a></li>
           </ul>
         </div>
@@ -332,29 +338,31 @@
       </div>
       <div class="footer__bottom">
         <div class="footer__social">
-          <a href="#">
+          <a href="#" aria-label="Facebook">
             <svg class="footer__social-svg">
               <use href="./img/symbol-defs.svg#icon-facebook"></use>
             </svg>
           </a>
-          <a href="#">
+          <a href="#" aria-label="Twitter">
             <svg class="footer__social-svg">
               <use href="./img/symbol-defs.svg#icon-twitter"></use>
             </svg>
           </a>
-          <a href="#">
+          <a href="#" aria-label="Instagram">
             <svg class="footer__social-svg">
               <use href="./img/symbol-defs.svg#icon-instagram"></use>
             </svg>
           </a>
-          <a href="#"
-            ><svg class="footer__social-svg">
+          <a href="#" aria-label="Youtube">
+            <svg class="footer__social-svg">
               <use href="./img/symbol-defs.svg#icon-youtube"></use>
             </svg>
           </a>
         </div>
         <div class="footer__copyright">
-          <p class="footer__copyright-txt">&#169; seashi all rights reserved</p>
+          <p class="footer__copyright-txt">
+            &#169; Travel Explorer all rights reserved
+          </p>
         </div>
       </div>
     </footer>
